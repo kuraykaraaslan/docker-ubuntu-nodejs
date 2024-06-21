@@ -1,10 +1,10 @@
 FROM ubuntu:22.04
-SHELL ["/bin/bash", "-c"]
 
-RUN ["/bin/bash", "-c", "echo I am now using bash!"]
+# Set the default shell to bash
+SHELL ["/bin/bash", "-ec"]
 
 # Install necessary packages for ubuntu
-RUN apt-get update && apt-get install -y unzip curl nano
+RUN apt-get update && apt-get install -y unzip curl nano build-essential libssl-dev bash
 
 # Install NVM (Node Version Manager) to manage Node.js installations
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
